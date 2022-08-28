@@ -1,0 +1,3 @@
+--username and password for db created in pgadmin4
+DB_USERNAME=sorna;DB_PASSWORD=password
+

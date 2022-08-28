@@ -1,0 +1,4 @@
+Download packages:
+1.pip
+2.psycopg2-binary
+3.Flask
