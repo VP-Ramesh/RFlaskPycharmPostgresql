@@ -1,0 +1,20 @@
+Complete Flow:
+
+1. Open psql(SQL Shell from Postgresql) 
+   Enter Server, Database, Port, Username(or just hit enter) and Password
+2. postgres=#CREATE DATABASE flask_db
+   postgres=#CREATE USER sorna WITH PASSWORD 'password';
+ ---this password and username will be using from python program also
+ ---save them as environment vairables in python
+   postgres=#GRANT ALL PRIVILEGES ON DATABASE flask_db TO sorna;
+   postgres=# \l ----this will give the list db
+3. Open pycharm and create a new Project - FlaskPycharmPostgresql
+4. install packages Pip, Flask and Psycopg2-binary in this project
+5. Create folder Templates to store all the html files
+   Open, Code and Save base.html and index.html
+6. Create python file init_db.py
+7. Create python file app.py
+8. Run init_db.py --- hardcoded input in python pgm and will be stored in db
+9. Run app.py --- will fetch values from db and outputs in UI(http://127.0.0.1:5000/)
+
+   
