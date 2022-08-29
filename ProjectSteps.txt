@@ -17,4 +17,35 @@ Complete Flow:
 8. Run init_db.py --- hardcoded input in python pgm and will be stored in db
 9. Run app.py --- will fetch values from db and outputs in UI(http://127.0.0.1:5000/)
 
+to get input from UI and update in DB, make the following changes to project:
+
+10. add create.html in template -----this html page contains columns for user to add new entry to books table/ add new books to the list
+
+modifications in base.html has to made so when create button is pressed in first page, the create.html will open
+11. add line <a href="{{ url_for('create') }}">Create</a> in base.html --- or copy code under updated_base.doc file to base.html
+
+12. in app.py add below code else copy code from updated_app.doc to app.py
+
+----this will get input from user and when submit button is pressed, data will be added to db and page will return to index.html with updated book list
+@app.route('/create/', methods=('GET', 'POST'))
+def create():
+    if request.method == 'POST':
+        title = request.form['title']
+        author = request.form['author']
+        pages_num = int(request.form['pages_num'])
+        review = request.form['review']
+
+        conn = get_db_connection()
+        cur = conn.cursor()
+        cur.execute('INSERT INTO books (title, author, pages_num, review)'
+                    'VALUES (%s, %s, %s, %s)',
+                    (title, author, pages_num, review))
+        conn.commit()
+        cur.close()
+        conn.close()
+        return redirect(url_for('index'))
+
+    return render_template('create.html')
+
+
    
