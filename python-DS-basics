@@ -1,0 +1,12 @@
+list1  = [['a','a'],(1,1),{1,1},{'key1':'v1', 'key1':'v2', 'key2':'v3'}]
+
+for i in list1:
+    print ('Type:',type(i), '\tValue:',i)
+    if (isinstance(i, list)):
+        print ('list is dynamic array, mutable, allows duplicate\n')
+    if (isinstance(i, tuple)):
+        print ('tuple is collection, immutable, allows duplicate\n')
+    if (isinstance(i, set)):
+        print ('ordered collection of values, mutable, does not allow duplicate\n')
+    if (isinstance(i, dict)):
+        print ('Key value pair, mutable, does not allow duplicate on key\n')
